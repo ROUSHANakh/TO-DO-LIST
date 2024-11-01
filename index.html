@@ -3,15 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>To-Do List App</title>
+    <title>To-Do List App with Alarm</title>
     <link rel="stylesheet" href="TO DO LIST.css">
 </head>
 <body>
     <div class="container">
-        <h1>To-Do List App</h1>
+        <h1>To-Do List App with Alarm</h1>
         <input type="text" id="new-task" placeholder="Add a new task...">
+        <input type="datetime-local" id="reminder-time">
         <button id="add-task-button">Add Task</button>
-        <ul id="task-list"></ul>
+        <ol id="task-list"></ol>
+        <audio id="alarm-sound" src="alarm.mp3" preload="auto"></audio>
+        <footer>Created by Roushan</footer>
     </div>
     <script src="TO DO LIST.js"></script>
 </body>
