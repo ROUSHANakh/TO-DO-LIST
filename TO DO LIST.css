@@ -9,19 +9,27 @@ body {
 }
 
 .container {
-    background: white;
+    background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
     text-align: center;
+    width: 90%;
+    max-width: 400px;
+    position: relative;
 }
 
-input {
+input[type="text"], input[type="datetime-local"] {
     padding: 10px;
     margin: 10px 0;
-    width: 80%;
+    width: calc(100% - 22px);
     border: 1px solid #ccc;
     border-radius: 5px;
+    font-size: 16px;
+}
+
+input[type="datetime-local"] {
+    font-family: 'Courier New', Courier, monospace;
 }
 
 button {
@@ -31,22 +39,81 @@ button {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    font-size: 16px;
+    margin-right: 10px;
 }
 
-ul {
+button.delete {
+    background-color: #dc3545;
+}
+
+ol {
     list-style-type: none;
     padding: 0;
+    counter-reset: my-counter;
 }
 
-li {
+ol li {
     padding: 10px;
     border-bottom: 1px solid #ccc;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    font-family: 'Georgia', serif;
+    font-size: 18px;
+    color: #555;
+    counter-increment: my-counter;
+}
+
+ol li::before {
+    content: counter(my-counter) ". ";
+    color: #2874f0;
+    font-weight: bold;
 }
 
 .complete {
     text-decoration: line-through;
     color: grey;
+}
+
+footer {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    font-size: 12px;
+    color: #555;
+    background-color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    font-family: 'Georgia', serif;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+footer:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Media Queries */
+@media (max-width: 600px) {
+    .container {
+        padding: 15px;
+        width: 100%;
+    }
+
+    input[type="text"], input[type="datetime-local"] {
+        font-size: 14px;
+        padding: 8px;
+        margin: 8px 0;
+    }
+
+    button {
+        font-size: 14px;
+        padding: 8px 15px;
+    }
+
+    footer {
+        font-size: 10px;
+    }
 }
